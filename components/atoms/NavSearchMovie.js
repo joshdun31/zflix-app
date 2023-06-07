@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { covertToLinkWords, getYear, getDate } from "../../utils/functions";
+import { getDate,getLink } from "../../utils/functions";
 import styles from "../../scss/components/navbar.module.scss";
 
 function NavSearchMovie({
@@ -8,21 +8,16 @@ function NavSearchMovie({
     currentSearchResult,
     index,
     handleResultHover,
+    hover
 }) {
     return (
         <Link
-            href={
-                "/en/movie/" +
-                item.id +
-                "/" +
-                covertToLinkWords(item.title) +
-                (item.release_date ? "-" + getYear(item.release_date) : "")
-            }
+            href={getLink(item,"movie")}
         >
             <a id={"result_"+index}>
                 <li
                     className={styles.result}
-                    onMouseEnter={() => handleResultHover(index)}
+                    onMouseEnter={() => hover?handleResultHover(index):null}
                 >
                     <div className={styles.r_left}>
                         {item.poster_path ? (

@@ -3,7 +3,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Layout1 from '../components/Layout'
 import { useEffect, useState } from "react";
 import NextNProgress from "nextjs-progressbar";
-import { loadProgressBar } from 'axios-progress-bar'
 import axios from "axios";
 
 //Store imports
@@ -13,7 +12,7 @@ import { dataLoaded, loginUser } from "../store/actions";
 import LoadingScreen from "../components/screens/LoadingScreen";
 import API from "../services/api";
 
-loadProgressBar()
+// loadProgressBar()
 
 function MyApp({ Component, pageProps, router }) {
   eval(

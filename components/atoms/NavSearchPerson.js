@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { covertToLinkWords, getYear, getDate } from "../../utils/functions";
+import {getDate,getLink} from "../../utils/functions";
 import styles from "../../scss/components/navbar.module.scss";
 
 function NavSearchPerson({
@@ -8,21 +8,17 @@ function NavSearchPerson({
     currentSearchResult,
     index,
     handleResultHover,
+    hover
 }) {
     
     return (
         <Link
-            href={
-                "/en/person/" +
-                item.id +
-                "/" +
-                covertToLinkWords(item.name)
-            }
+            href={getLink(item,"person")}
         >
             <a id={"result_"+index}>
                 <li
                     className={styles.result}
-                    onMouseEnter={() => handleResultHover(index)}
+                    onMouseEnter={() => hover?handleResultHover(index):null}
                 >
                     <div className={styles.r_left}>
                         {item.profile_path ? (
